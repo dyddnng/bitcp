@@ -7,5 +7,5 @@ public class MainBody {
     private int cpu;
     private int memory;
     
-    boolean power;
+    int power;
 }

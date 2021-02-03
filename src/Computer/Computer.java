@@ -15,45 +15,60 @@ public class Computer {
         this.color = color;
    }
     
-    boolean lowMode;
-    String space;
-    
+    int lowMode;
+    //boolean lowMode; //절전모드 여부
+    String space; // 
+
     MainBody mainbody = new MainBody();
     Monitor monitor = new Monitor();
     Keyboard keyboard = new Keyboard();
     public Scanner scanner = new Scanner(System.in);
     
+    // 컴퓨터 전원 켜기
+    public void ComputerOn() {
+    	System.out.println("시스템을 실행할까요? 실행:1 종료:0");
+    	mainbody.power = scanner.nextInt();
+        while(true) {
+        	if(mainbody.power == 1) {
+        		System.out.println("시스템을 시작합니다.");
+        		break;
+        	} else if(mainbody.power == 0) {
+        		System.out.println("시스템을 종료합니다.");
+        		break;
+        	}
+        	System.out.println("잘못입력하셨습니다.");
+        	System.out.println("시스템을 실행할까요? 실행:1 종료:0");
+        	mainbody.power = scanner.nextInt();
+        }
+    }
+
+
     //공간 ( space ) 에 입력, 출력
     public void setSpace() {
         System.out.print("입력하실 내용 > ");
         scanner.nextLine();
         this.space = scanner.nextLine();
-    }
-    public void PrintSpace() {
-        System.out.println("출력 내용: ");
         System.out.println(this.space);
     }
     
-    //컴퓨터 전원 키고, 끄기
-    public void ComputerOn() {
-        System.out.println("컴퓨터의 전원을 킵니다.");
-        mainbody.power = true;
+    //절전모드 켜고, 끄기   
+    public void lowMode() {
+    	System.out.println("절전모드를 실행할까요? 실행:1 종료:0");
+    	lowMode = scanner.nextInt();
+        while(true) {
+        	if(lowMode == 1) {
+        		System.out.println("절전모드를 실행합니다.");
+        		break;
+        	} else if(lowMode == 0) {
+        		System.out.println("절전모드를 종료합니다.");
+        		break;
+        	}
+        	System.out.println("잘못입력하셨습니다.");
+        	System.out.println("절전모드를 실행할까요? 실행:1 종료:0");
+        	lowMode = scanner.nextInt();
+        }
     }
-    public void ComputerOff() {
-        System.out.println("컴퓨터의 전원을 끕니다.");
-        mainbody.power = false;
-    }
-    
-    //절전모드 키고, 끄기
-    public void lowModeOn() {
-        System.out.println("절전모드를 실행합니다.");
-        lowMode = true;
-    }
-    public void lowModeOff() {
-        System.out.println("절전모드를 종료합니다.");
-        lowMode = false;
-    }
-    
+
     //사칙연산 기능
     public void calculate(int i, int j) {
         System.out.println("연산자를 선택해주세요. \n (덧셈: 1, 뺄셈: 2, 곱셈: 3, 나눗셈: 4)");
@@ -93,12 +108,48 @@ public class Computer {
     //컴퓨터 상태, 정보 보기
     public void ComputerInfo() {
         System.out.println("-- 컴퓨터 상태 --");
-        System.out.println("전원 : " + mainbody.power);
-        System.out.println("절전모드 : " + lowMode);
+        if(mainbody.power == 1) {
+        	System.out.println("전원 ON");
+        } else {
+        	System.out.println("전원 OFF");
+        }
+        if(lowMode == 1) {
+        	System.out.println("절전모드 실행중");
+        } else {
+        	System.out.println("절전모드 꺼짐");
+        }
+        
         System.out.println("-- 컴퓨터 정보 --");
         System.out.println("가격: " + price + "원");
         System.out.println("시리얼 넘버: " + number);
         System.out.println("브랜드: " + brand);
         System.out.println("색깔: " + color);
     }
+    
+    public static void main(String[] args) {
+    	
+    	
+    	// 컴퓨터를 써봅시다
+    	Computer computer = new Computer(100,33,"SAMSTAR","black");
+    	
+    	// 전원 on-off 가능
+    	computer.ComputerOn();
+    	
+    	// 입출력이 가능
+    	computer.setSpace();
+    	   	
+    	// 절전모드 on-off 가능
+    	computer.lowMode();
+    	
+    	// 사칙연산
+    	computer.calculate(1, 5);
+    	
+    	// 컴퓨터 상태 보기
+    	computer.ComputerInfo();
+    	
+    	
+    }
 }
+
+
+
