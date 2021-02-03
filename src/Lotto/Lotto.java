@@ -44,7 +44,7 @@ public class Lotto {
                     }
                     Arrays.sort(numbers);
                     //출력
-                    System.out.printf("평균 : [%d]\n", sum / numbers.length );
+                    System.out.printf("평균 : %d\n", sum / numbers.length );
                     System.out.println("[ 선택한 Lotto 번호 ]");
                     System.out.printf("[%d][%d][%d][%d][%d][%d]\n", numbers[0], numbers[1], numbers[2], numbers[3], numbers[4], numbers[5]);
             }
