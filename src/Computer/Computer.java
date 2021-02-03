@@ -21,29 +21,36 @@ public class Computer {
     MainBody mainbody = new MainBody();
     Monitor monitor = new Monitor();
     Keyboard keyboard = new Keyboard();
-    Scanner scanner = new Scanner(System.in);
+    public Scanner scanner = new Scanner(System.in);
     
     //공간 ( space ) 에 입력, 출력
-    public void SpaceInput() {
+    public void setSpace() {
+        System.out.print("입력하실 내용 > ");
+        scanner.nextLine();
         this.space = scanner.nextLine();
     }
-    public void SpacePrint() {
+    public void PrintSpace() {
+        System.out.println("출력 내용: ");
         System.out.println(this.space);
     }
     
     //컴퓨터 전원 키고, 끄기
     public void ComputerOn() {
+        System.out.println("컴퓨터의 전원을 킵니다.");
         mainbody.power = true;
     }
     public void ComputerOff() {
+        System.out.println("컴퓨터의 전원을 끕니다.");
         mainbody.power = false;
     }
     
     //절전모드 키고, 끄기
     public void lowModeOn() {
+        System.out.println("절전모드를 실행합니다.");
         lowMode = true;
     }
     public void lowModeOff() {
+        System.out.println("절전모드를 종료합니다.");
         lowMode = false;
     }
     
@@ -54,26 +61,33 @@ public class Computer {
         switch(choice) {
         case 1:
             add(i,j);
+            break;
         case 2:
             min(i,j);
+            break;
         case 3:
             mul(i,j);
+            break;
         case 4:
             div(i,j);
+            break;
+        default :
+            System.out.println("잘못입력하셨습니다.");
+
         }
     }
     
     private void add(int i, int j) {
-        System.out.printf("%d + %d = %d" ,i , j , i+j);
+        System.out.printf("%d + %d = %d\n" ,i , j , i+j);
     }
     private void min(int i, int j) {
-        System.out.printf("%d - %d = %d" ,i , j , i-j);
+        System.out.printf("%d - %d = %d\n" ,i , j , i-j);
     }
     private void mul(int i, int j) {
-        System.out.printf("%d * %d = %d" ,i , j , i*j);
+        System.out.printf("%d * %d = %d\n" ,i , j , i*j);
     }
     private void div(int i, int j) {
-        System.out.printf("%d / %d = %f" ,i , j , (float)i/j);
+        System.out.printf("%d / %d = %f\n" ,i , j , (float)i/j);
     }
      
     //컴퓨터 상태, 정보 보기
