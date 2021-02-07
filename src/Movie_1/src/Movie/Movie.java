@@ -20,8 +20,8 @@ public class Movie {
     private int save;
 
     {
-        WIDTH = 6;
-        HEIGHT = 6;
+        WIDTH = 5;
+        HEIGHT = 4;
         person = new Person[WIDTH * HEIGHT];
         scanner = new Scanner(System.in);
         count = 0;
@@ -59,15 +59,26 @@ public class Movie {
 
         // 좌석 선택
         System.out.println("좌석을 선택해주세요! 예시) 2-4 ");
-        System.out.println("이미 예매된 자석은 \"예매\" 라고 표시됩니다.");
+        System.out.println("이미 예매된 좌석은 \"예매\" 라고 표시됩니다.");
         System.out.print(" > ");
         scanner.nextLine();
         String seatChoice = scanner.nextLine();
 
+        
+  
         // 입력값을 - 로 나누고, 나눈 값을 int에 저장
         String[] Array = seatChoice.split("-");
         height = Integer.parseInt(Array[0]);
         width = Integer.parseInt(Array[1]);
+               
+        // 입력된 값이 좌석의 행과 열의 최대치를 벗어난 경우 경고
+        if(height > seat.length || width > seat[height].length) {
+           System.out.println("존재하지 않는 좌석입니다! 다시 선택해주세요!");
+           System.out.print(" > ");
+            scanner.nextLine();
+            seatChoice = scanner.nextLine();
+        }
+
 
         // 비어있는 좌석이면, 예매 , 예약되어있는 좌석이면 다른 좌석 선택
         if (!seat[height - 1][width - 1].equals("예매")) {
@@ -86,7 +97,6 @@ public class Movie {
                 seat[height - 1][width - 1] = "예매";
                 ticketNum = (int) ((Math.random() * 9999999) * 10);
                 person[count] = new Person(height, width, ticketNum);
-                System.out.println(person[count].toString());
                 count++;
                 System.out.printf("예매한 좌석번호 : [%d-%d]  /  예매번호 : %d\n", height, width, ticketNum);
 

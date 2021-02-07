@@ -31,8 +31,4 @@ public class Person {
         System.out.printf("고객님이 예매하신 좌석은 [%d-%d] 입니다.\n", height, width);
     }
 
-    @Override
-    public String toString() {
-        return "Person [height=" + height + ", width=" + width + ", ticketNumber=" + ticketNumber + "]";
-    }
 }
