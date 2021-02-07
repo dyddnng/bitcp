@@ -1,5 +1,6 @@
 package Lotto;
 
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -7,11 +8,13 @@ public class Lotto {
     private int[] numbers; // 로또 랜덤번호
     private Scanner scanner;
     private Random random;
+    private int sum;
 
     public Lotto() { // Lotto 생성자
-        numbers = new int[6];
-        scanner = new Scanner(System.in);
-        random = new Random();
+        this.numbers = new int[6];
+        this.scanner = new Scanner(System.in);
+        this.random = new Random();
+        this.sum = 0;
     }
 
     public void selectLottoNumbers() {
@@ -24,34 +27,26 @@ public class Lotto {
             System.out.println("원하시는 메뉴 번호를 입력하세요 : ");
             int Menu = scanner.nextInt();
 
-            if (Menu == 1) {
-                // 번호 추출, 중복 확인
-                for (int i = 0; i < numbers.length; i++) {
-                    int number = (int) (Math.random() * 45 + 1);
-                    for (int j = 0; j < numbers.length; i++) {
-                        if (number == numbers[j]) {
-                            number = (int) (Math.random() * 45 + 1);
-                            j = -1;
+            //랜덤으로 뽑은 로또
+            if(Menu == 1) {
+                this.sum = 0;
+                for (int i = 0 ; i < numbers.length; i++) {
+                    int randNumber = random.nextInt(45) + 1;
+                    //중복확인 코드        
+                    for (int j = 0; j < numbers.length; j++) {
+                        if (randNumber == numbers[j]) {
+                            randNumber = random.nextInt(45) + 1 ;
+                            j = - 1; //j값을 -1로 만들어서 다시 for문을 순회하게끔 만들어줌
+                            }                    
                         }
-                        else {
-                            numbers[i] = number;
-                        }
+                    numbers[i] = randNumber;
+                    sum += randNumber;
                     }
-                    
-                }
-                //정렬
-                for (int i = 0; i < numbers.length - 1; i++) {
-                    if (numbers[i] > numbers[i + 1]) {
-                        int temp = numbers[i];
-                        numbers[i] = numbers[i + 1];
-                        numbers[i + 1] = temp;
-                    }
-                    i = -1;
-                }
-                //출력
-                System.out.println("[ 선택한 Lotto 번호 ]");
-                System.out.printf("[%d][%d][%d][%d][%d][%d]", numbers[0], numbers[1], numbers[2], numbers[3], numbers[4], numbers[5]);
-                System.err.println();
+                    Arrays.sort(numbers);
+                    //출력
+                    System.out.printf("평균 : %d\n", sum / numbers.length );
+                    System.out.println("[ 선택한 Lotto 번호 ]");
+                    System.out.printf("[%d][%d][%d][%d][%d][%d]\n", numbers[0], numbers[1], numbers[2], numbers[3], numbers[4], numbers[5]);
             }
             
             //프로그램 종료
@@ -64,11 +59,5 @@ public class Lotto {
                 System.out.println("잘못입력하셨습니다.");
             }
         }
-        
-    }
-    
-    public static void main(String[] args) {
-        Lotto lotto = new Lotto();
-        lotto.selectLottoNumbers();
     }
 }
