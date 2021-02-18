@@ -1,3 +1,4 @@
+  
 package Lotto;
 
 import java.io.BufferedWriter;
