@@ -23,7 +23,7 @@ public class junggusik {
 			break;
 			case 2 : jumin();
 			break;
-			case 3 : thousands();
+			case 3 : ip();
 			break;
 			case 4 : carNumber();
 			break;
@@ -69,8 +69,8 @@ public class junggusik {
 		}
 	}
 	
-	public static void thousands() {
-		// 명환이 정규표현식이랑 해석 붙일 예정
+	public static void ip() {
+
 		 Scanner sc = new Scanner(System.in);
          System.out.println("아이피를 입력해주세요!");
          String regExp = "^(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})$";
