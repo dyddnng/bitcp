@@ -14,7 +14,7 @@ public class junggusik {
 		while(true) {
 			
 			System.out.println(
-					"1. e-mail 2. 주민등록번호 3. 천 단위 Comma 표시 4. 차량번호 6. 종료");
+					"1. e-mail 2. 주민등록번호 3. IP 4. 차량번호 6. 종료");
 			
 			int a = scanner.nextInt();
 			
@@ -65,17 +65,22 @@ public class junggusik {
 		if(bo == true) {
 			System.out.println("올바른 형식의 주민등록 번호입니다!");
 		} else {
-			System.out.println("땡! 주민등록번호의 형식은 XXXXXX-XXXXXXX이며 일곱번째 숫자는 1~4사이의 숫자만 허용합니다.");
+			System.out.println("땡! 주민등록번호의 형식은 XXXXXX-XXXXXXX이며 일곱번째 숫자는 1~4사이의 숫자만 허용합니다!");
 		}
 	}
 	
 	public static void thousands() {
 		// 명환이 정규표현식이랑 해석 붙일 예정
-		System.out.println("3. 천 단위 이상의 숫자를 입력해주세요!");
-		String userInput = scanner.nextLine(); // input
-        System.out.println("입력: " + userInput);
-        String strOuputNum = CommaRegexExam.setComma(userInput);
-        System.out.println("변환결과 : " + strOuputNum); // output
+		 Scanner sc = new Scanner(System.in);
+         System.out.println("아이피를 입력해주세요!");
+         String regExp = "^(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})$";
+         String data = sc.nextLine();
+         boolean b = data.matches(regExp); // true ,false 유효성 검사
+         if (b == true) {
+             System.out.println("올바른 형식의 아이피입니다!");
+         } else {
+             System.out.println("땡 ! 아이피형식은 123.123.123.123 입니다!");
+         }
 	}
 	
 	public static void carNumber() {
@@ -138,7 +143,15 @@ public class junggusik {
  {} : 횟수나 범위 즉 \d{6}은 0~9사이의 숫자 여섯자리를 허용한다는 뜻
  [] : 괄호 안에 정해진 문자형식의 범위 바 뒤에 첫 숫자는 1~4 사이 숫자만 허용한다는 뜻
 
-3. 숫자
+3. 아이피
+"^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$"
+
+(이스케이프문자 제외 )
+^, $ : 문자열 시작, 문자열 종료
+\d: 숫자 [0-9], 숫자 0~9 의 범위를 나타냄
+{1, 3} : 횟수 또는 범위, 1번 or 3번
+() : 소괄호안의 문자를 하나의 문자로 인식
+. : 임의의 한 문자
 
 
 4. 차량번호
