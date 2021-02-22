@@ -19,7 +19,6 @@ public class User {
     public User(int money, int point) {
         this.money = money;
         this.point = point;
-        this.bookmark = new ArrayList<>();
     }
     //주문
     public void order() {
@@ -35,14 +34,6 @@ public class User {
     }
     //주문취소
     public void noShow() {
-
-    }
-    //즐겨찾기 추가
-    public void addBookmark() {
-
-    }
-    //즐겨찾기 보기
-    public void readBookmark() {
 
     }
     //배달시간 보기
