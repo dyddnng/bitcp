@@ -14,6 +14,7 @@ public class User {
     private String id;
     private int money;
     private int point;
+    private Address address; // 주소지
     private ArrayList<Seller> bookmark; //매장 넣기.
 
     public User(int money, int point) {

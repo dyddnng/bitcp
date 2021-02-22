@@ -23,9 +23,9 @@ public class BitEats {
     //로그인 데이터
     private ArrayList<HashMap<String, String>> sellersList;
 
-    private int userMembers ;
+    private int userMembers ; //등록된 사용자 회원수(나중에 ArrayList 에서 회원꺼낼때 써야할듯..
     // 각 층을 담을 배열
-    private int sellerMembers ;
+    private int sellerMembers ; //등록된 판매자 회원수
 
     //회원가입 (사용자)
     public void joinUser() {
