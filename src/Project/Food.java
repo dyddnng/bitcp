@@ -3,6 +3,10 @@ package Project;
 public class Food {
     private String foodName;
     private int price;
-    private int gram;
+
+    public Food(String foodName, int price) {
+        this.foodName = foodName;
+        this.price = price;
+    }
 
 }

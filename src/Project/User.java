@@ -11,9 +11,10 @@ package Project;
 import java.util.ArrayList;
 
 public class User {
+    private String id;
     private int money;
     private int point;
-    private ArrayList<Seller> bookmark;
+    private ArrayList<Seller> bookmark; //매장 넣기.
 
     public User(int money, int point) {
         this.money = money;
