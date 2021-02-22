@@ -36,5 +36,8 @@ public class Seller {
     }
 
     //배달료를 판매자가 설정할 수 있게?
+    public void setDeliveryFee() {
+
+    }
 
 }
