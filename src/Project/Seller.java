@@ -26,10 +26,11 @@ public class Seller {
     public void yesOrNo() {
 
     }
+    //배달시간알림
     public void deliveryTimes() {
 
     }
-
+    //가게 열기 닫기
     public boolean onOff() {
         return true;
     }

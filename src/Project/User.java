@@ -25,7 +25,11 @@ public class User {
     public void order() {
 
     }
-    //상품목록 읽기
+    //결제하기
+    public void pay(){
+
+    }
+    //상품목록 읽기(메뉴임 ㅎ)
     public void getShops() {
 
     }
@@ -39,6 +43,10 @@ public class User {
     }
     //즐겨찾기 보기
     public void readBookmark() {
+
+    }
+    //배달시간 보기
+    public void checkTime() {
 
     }
 }
