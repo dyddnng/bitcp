@@ -1,29 +1,34 @@
 package Project;
 
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.EOFException;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.util.Scanner;
 
 
-public class Customer implements Serializable {
+public class Customer {
     private String id;
-    private int money ; // ??
     private String address;
+    private int money;
     //private ArrayList<Order> orderList = new ArrayList<Order>();
-
+    
     public Customer(String id, String address) {
        this.id = id;
-       this.money = 100000;
        this.address = address;
-
+       this.money = 100000;
+       
     }
-
-    //메뉴판 보기
+    
+    //메뉴판 보기 
     public void getMenu() {
         String filePath = "/Users/joohyun/java_test/Menu.txt";
-
-        FileInputStream fis = null;
+        
+        FileInputStream fis=null;
         BufferedInputStream bis = null;
-        ObjectInputStream in = null;
+        ObjectInputStream in =null;
         try {
             fis = new FileInputStream(filePath);
             bis = new BufferedInputStream(fis);
@@ -54,15 +59,17 @@ public class Customer implements Serializable {
     
     //주문하기 
     public void order() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("주문하실 메뉴를 선택해주세요 ");
-        int choice = scanner.nextInt();
+        
+        System.out.println("주문하실 메뉴를 선택해주세요. ");
+        Scanner sc = new Scanner(System.in);
+        int choice = sc.nextInt();
+        
         switch(choice) {
         case 1: 
         case 2:
         case 3:
         case 4:
-        default:
+        default: System.out.println("잘못 입력하셨습니다. ");
             break;
         }
         
@@ -70,7 +77,6 @@ public class Customer implements Serializable {
     
     //결제하기 
     public void pay(Food f) {
-        int money = 100000; //초기금액
         
         if(f.getPrice() >= this.money) {
             System.out.println("주문 불가 ! 돈이 부족합니다... 잔액은 :" +this.money+ "입니다. " );
