@@ -19,6 +19,6 @@ public class Food {
 
     @Override
     public String toString() {
-        return this.foodName;
+        return "메뉴 이름 : " +  this.foodName + " 가격 : " + this.foodPrice;
     }
 }

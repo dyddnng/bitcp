@@ -3,7 +3,7 @@ package Project;
 public class Order {
     private int orderNum; //아니잠간.. orderNum이 정상적으로 누적되려면. I/O를 써야하잖아????
     private boolean permission;
-    private Food food; //
+    private Food food; // Food가져야지..
     private String user; // User에서 이름만(ID)
     private String seller; //Seller에서 이름만(ID)
 
