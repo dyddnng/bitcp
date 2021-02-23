@@ -51,16 +51,18 @@ public class BitEats_1 {
             return false;
         }
 
-        if (!(type == 1 && type == 2)) {
+        if (!(type == 1 || type == 2)) {
             System.out.println("사용자 유형을 잘못입력하셨습니다.");
             return false;
         } else if (type == 1) {
             try {
                 fos = new FileOutputStream(USERINFO, true);
                 bos = new BufferedOutputStream(fos);
-                oot = new ObjectOutputStream(bos);
-
-                //oot.writeObject(new Customer(id));
+                oot = new ObjectOutputStream(bos);// 직렬화 끝
+                //직렬화 대상
+                System.out.println("주소를 입력해 주세요.");
+                String address = scanner.nextLine();
+                oot.writeObject(new Customer(id,"bit시 bit동"));
                 users.put("C" + id, pwd);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -80,8 +82,8 @@ public class BitEats_1 {
                 fos = new FileOutputStream(USERINFO, true);
                 bos = new BufferedOutputStream(fos);
                 oot = new ObjectOutputStream(bos);
-
-                oot.writeObject(new Seller(id));// 미완성!!
+                Seller test = new Seller(id);
+                oot.writeObject(test);// 완성!!
                 users.put("S" + id, pwd);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
