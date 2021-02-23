@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Seller {
+public class Seller implements Serializable {
     private boolean open;
     private String storeName;
     private ArrayList<Food> menu;
