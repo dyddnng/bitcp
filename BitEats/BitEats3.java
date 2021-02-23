@@ -16,18 +16,18 @@ public class BitEats3 {
 	
 	public Scanner scanner = new Scanner(System.in);
 	private HashMap<String, String> users;
-	private ArrayList<Customer2> customerlist;
+/*	private ArrayList<Customer2> customerlist;
 	private ArrayList<Seller> sellerlist;
-	private ArrayList<Order> orderlist;
+	private ArrayList<Order> orderlist;*/
 	
 	// 0이면 로그아웃, 1이면 개인, 2면 가맹
 	private int status;
 	
 	public BitEats3(){
 		users = new HashMap<String, String>();
-		customerlist = new ArrayList<Customer2>();
+/*		customerlist = new ArrayList<Customer2>();
 		sellerlist = new ArrayList<Seller>();
-		orderlist =  new ArrayList<Order>();
+		orderlist =  new ArrayList<Order>();*/
 		this.status = 0;
 	}
 	
