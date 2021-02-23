@@ -1,33 +1,29 @@
 package Project;
 
-import java.io.BufferedInputStream;
-import java.io.EOFException;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.ObjectInputStream;
+import java.io.*;
+import java.util.Scanner;
 
 
-public class Customer {
+public class Customer implements Serializable {
     private String id;
-    private int money = 100000; // ??
+    private int money ; // ??
     private String address;
     //private ArrayList<Order> orderList = new ArrayList<Order>();
-    
-    public Customer(String id,int money, String address) {
+
+    public Customer(String id, String address) {
        this.id = id;
-       this.money = money;
+       this.money = 100000;
        this.address = address;
-       
+
     }
-    
-    //메뉴판 보기 
+
+    //메뉴판 보기
     public void getMenu() {
         String filePath = "/Users/joohyun/java_test/Menu.txt";
-        
-        FileInputStream fis=null;
+
+        FileInputStream fis = null;
         BufferedInputStream bis = null;
-        ObjectInputStream in =null;
+        ObjectInputStream in = null;
         try {
             fis = new FileInputStream(filePath);
             bis = new BufferedInputStream(fis);
@@ -35,7 +31,7 @@ public class Customer {
             
             Object  users =null;
             while((users = in.readObject()) != null) {
-                System.out.println(((Menu)users).toString());
+                System.out.println(((Food)users).toString());
             }
         }catch (FileNotFoundException fnfe) {
               System.out.println("파일이 존재하지 않습니다");
@@ -58,8 +54,10 @@ public class Customer {
     
     //주문하기 
     public void order() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("주문하실 메뉴를 선택해주세요 ");
-        switch() {
+        int choice = scanner.nextInt();
+        switch(choice) {
         case 1: 
         case 2:
         case 3:

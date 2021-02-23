@@ -13,18 +13,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 
-class Customer {
-
-}
-
-class Seller {
-
-}
-
-class Order {
-
-}
-
 public class BitEats_1 {
     private Map<String, String> users;
     private List<Order> ordersList;
@@ -72,7 +60,7 @@ public class BitEats_1 {
                 bos = new BufferedOutputStream(fos);
                 oot = new ObjectOutputStream(bos);
 
-                oot.writeObject(new Customer2(id));
+                //oot.writeObject(new Customer(id));
                 users.put("C" + id, pwd);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -93,7 +81,7 @@ public class BitEats_1 {
                 bos = new BufferedOutputStream(fos);
                 oot = new ObjectOutputStream(bos);
 
-                oot.writeObject(new Seller2(id));// 미완성!!
+                oot.writeObject(new Seller(id));// 미완성!!
                 users.put("S" + id, pwd);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
@@ -140,9 +128,9 @@ public class BitEats_1 {
                 oit = new ObjectInputStream(bis);
 
                 if(id.charAt(0) == 'C') {
-                    Customer2 customer = (Customer2)oit.readObject();
+                    Customer customer = (Customer)oit.readObject();
                 } else if(id.charAt(0) == 'S') {
-                    Seller2 seller = (Seller2)oit.readObject();
+                    Seller seller = (Seller)oit.readObject();
                 } else {
                     System.out.println("??? 어케 왔누");
                 }
