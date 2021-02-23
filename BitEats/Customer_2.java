@@ -33,26 +33,25 @@ public class Customer_2 {
     }
     
     // 메뉴추가하기 메인에서 파라미터 받아서 넣는다
-    // 이렇게 넣은 거 직렬화까진 되는데 역직렬화가....잘....되나?
     public void setMenu(String foodName, int price) {
     	
     	Food f = new Food(foodName, price);
     	foodlist.add(f.toString());
     	
     	String filePath = "C:\\Temp\\Menu.txt";
-        
+    	
         FileOutputStream fos=null;
         BufferedOutputStream bos = null;
         ObjectOutputStream out =null;
         try {
+        	
+        	// 직렬화한 객체를 C:\\Temp\\Menu.txt에 저장하기로 경로 잡는다
             fos = new FileOutputStream(filePath);
             bos = new BufferedOutputStream(fos);
             out = new ObjectOutputStream(bos); //분해된 부품을 조립 (역지렬화)
             
-
-            for(int i = 0; i < foodlist.size(); i++) {
-            	out.writeObject(foodlist);
-            }
+            // foodlist를 직렬화해서 저장
+            out.writeObject(foodlist);
             
         }catch (Exception e) {
         }finally {
@@ -69,8 +68,10 @@ public class Customer_2 {
     
     //메뉴판 보기 
     public void getMenu() {
+    	
+    	// 아래 경로에 있는 파일에 저장한 객체를 불러온다
         String filePath = "C:\\Temp\\Menu.txt";
-        
+	
         FileInputStream fis=null;
         BufferedInputStream bis = null;
         ObjectInputStream in =null;
@@ -81,18 +82,10 @@ public class Customer_2 {
             
             Object foods = null;
             
+            // foods에 재조립한 객체가 담겼다
             foods = in.readObject();
-            System.out.println(foods.toString());
-            
-            /*
-            while((foods = in.readObject()) != null) {
-                System.out.println(foods.toString());
-                //foodlist.add(foods.toString());
-            }
-            */
+            System.out.println(foods);
 
-            
-            
         }catch (Exception e) {
               System.out.println(e.getMessage());
 
@@ -110,6 +103,8 @@ public class Customer_2 {
     
     //주문하기 
     public void order() {
+    	
+    	// 장바구니 담는 것처럼 선택한 주문 누적할 것
     	String str = "";
     	while(true) {
     		
@@ -117,21 +112,16 @@ public class Customer_2 {
             Scanner sc = new Scanner(System.in);
             int choice = sc.nextInt();
     		
-    		if(choice <= foodlist.size() && choice > 0) {
+            // foodlist에 담긴 메뉴가 늘어나도 상관 없게 조건식 설정
+    		if(choice <= foodlist.size() && choice > 0) {  			
     			
-    			
-    			str += foodlist.get(choice-1);
-
+    			str += foodlist.get(choice-1)+"\n";
                 System.out.println(str);
+                
     		} else {
     			System.out.println("잘못 입력하셨습니다.");
-    		}
-    		
-    		
+    		}    		   		
     	}
-    	
-        
-
     }
     
     //결제하기 
