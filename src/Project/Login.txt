@@ -21,3 +21,15 @@ password를 알려주세요
 (Hashmap으로 Id, Password 생성)
 
 
+id, password 가 맞으면
+
+해당 id가 있는 배열을 리턴한다.
+
+그 리턴값은 이제 기능에서 계속 쓰인다.
+
+(if id와password가 둘다 일치한다면) {
+	return 배열에서 값
+}
+
+
+이제부터 기능은 다 return받은값이 들어가서 쓰인다.
