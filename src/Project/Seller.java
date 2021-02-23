@@ -9,6 +9,7 @@ public class Seller {
     private String storeName;
     private ArrayList<Food> menu;
     private ArrayList<Order> orderList;
+
 ////////주문 내역 확인 역순으로 할까? 그건 다 만든다음에 고민해보기//////////
     //주문 내역 확인
     public void checkOrders() {
@@ -96,6 +97,7 @@ public class Seller {
         int choice = scanner.nextInt();
         System.out.println(menu.remove(choice - 1) + "를 삭제했습니다.");
         System.out.println("========== 현재 메뉴 목록 ==========");
+
         showMenu();
 
         scanner.close();
