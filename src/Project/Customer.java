@@ -10,14 +10,14 @@ package Project;
 
 import java.util.ArrayList;
 
-public class User {
+public class Customer {
     private String id;
     private int money;
     private int point;
     private String address; // 주소지
     private ArrayList<Seller> bookmark; //매장 넣기.
 
-    public User(int money, int point) {
+    public Customer(int money, int point) {
         this.money = money;
         this.point = point;
     }
