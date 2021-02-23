@@ -4,17 +4,6 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/*
-
-판매자
-
-판매자는 주문을 확인할 수 있다.
-판매자는 주문을 승인 또는 거절할 수 있다.
-판매자는 메뉴를 추가,제거할 수 있다.
-판매자는 배달 소요 시간을 지정할 수 있다.
-판매자는 판매 내역을 볼 수 있다.
-판매자는 가게 Open, Close 를 할 수 있다.
- */
 public class Seller {
     private boolean open;
     private String storeName;
@@ -37,7 +26,7 @@ public class Seller {
             bis = new BufferedInputStream(fis); //불러온걸 버퍼로옮기고
             in = new ObjectInputStream(bis); //버퍼로 옮긴걸 조립한다
 
-            Object orders = null;
+            Object orders = null;  ///////////orders.으로 객체 기능 사용가능하다//////////
 
             while ((orders = in.readObject()) != null) {
                 System.out.println((Order)orders);
@@ -78,6 +67,38 @@ public class Seller {
                 scanner.close();
                 break;
         }
+    }
+    //menu에 Food 추가
+    public void addFood() {
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println(this.storeName + " 메뉴 추가 시스템입니다.");
+        System.out.println("추가하실 음식 이름을 알려주세요.");
+        String foodName = scanner.nextLine();
+        System.out.println("음식 가격을 입력해주세요");
+        int foodPrice = scanner.nextInt();
+        scanner.nextLine();
+        menu.add(new Food(foodName, foodPrice));
+    }
+    //메뉴 확인
+    public void showMenu() {
+        for(int i = 0 ; i < menu.size() ; i ++) {
+            System.out.printf("메뉴 [%d] : %s | %d원\n" , i + 1 , menu.get(i).getFoodName(), menu.get(i).getPrice());
+        }
+    }
+    //메뉴 지우기(수정)
+    public void deleteMenu () {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("========== 현재 메뉴 목록 ==========");
+        showMenu();
+        System.out.println("몇 번 메뉴를 삭제하시겠습니까?");
+        int choice = scanner.nextInt();
+        System.out.println(menu.remove(choice - 1) + "를 삭제했습니다.");
+        System.out.println("========== 현재 메뉴 목록 ==========");
+        showMenu();
+
+        scanner.close();
     }
 
     //가게 열기 닫기
