@@ -4,13 +4,21 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Seller {
+public class Seller implements Serializable {
     private boolean open;
     private String storeName;
     private ArrayList<Food> menu;
     private ArrayList<Order> orderList;
 
 ////////주문 내역 확인 역순으로 할까? 그건 다 만든다음에 고민해보기//////////
+
+    Seller(String storeName) {
+        this.open = false;
+        this.storeName = storeName;
+        this.menu = new ArrayList<Food>();
+        this.orderList = new ArrayList<Order>();
+    }
+
     //주문 내역 확인
     public void checkOrders() {
         // I/O 로 파일 불러옴 파일이름은 storeName과 동일하다
