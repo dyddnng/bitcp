@@ -1,4 +1,4 @@
-package ProjectLSJ0224;
+package Project_SJ;
 
 //코드 메인클래스
 public class Main {

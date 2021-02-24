@@ -1,21 +1,20 @@
-package ProjectLSJ0224;
-
+package Project_SJ;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class Customer_2 {
+public class Customer {
     private String id;
     private String address;
     private int money;
     //private ArrayList<Order> orderList = new ArrayList<Order>();
     private ArrayList<String> foodlist = new ArrayList<String>();
     
-    public Customer_2() {
+    public Customer() {
     	
     }
-    public Customer_2(String id, String address) {
+    public Customer(String id, String address) {
        this.id = id;
        this.address = address;
        this.money = 100000;
