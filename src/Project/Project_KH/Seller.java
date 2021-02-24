@@ -1,10 +1,11 @@
-package BitEats3;
+package Project_KH;
+
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Seller_KH implements Serializable {
+public class Seller implements Serializable {
     private boolean open;
     private String storeName;
     private ArrayList<Food> menu;
@@ -13,7 +14,7 @@ public class Seller_KH implements Serializable {
 
 ////////주문 내역 확인 역순으로 할까? 그건 다 만든다음에 고민해보기//////////
 
-    Seller_KH(String storeName) {
+    Seller(String storeName) {
         this.open = false;
         this.storeName = storeName;
         this.menu = new ArrayList<Food>();

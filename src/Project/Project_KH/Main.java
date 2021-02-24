@@ -1,9 +1,10 @@
-package BitEats3;
+package Project_KH;
 
-public class Main_KH {
+
+public class Main {
 	public static void main(String[] args) {
 		
-		BitEats_KH biteats = new BitEats_KH();
+		BitEats biteats = new BitEats();
 		
 		biteats.BitEatsMain();
 		
