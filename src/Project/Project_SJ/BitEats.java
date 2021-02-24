@@ -1,4 +1,4 @@
-package ProjectLSJ0224;
+package Project_SJ;
 
 //특이사항 : 매출 6조
 

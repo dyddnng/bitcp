@@ -1,4 +1,4 @@
-package BitEats3;
+package Project_KH;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 
 
-public class Customer_KH {
+public class Customer {
     private String id;
     private String address;
     private int money;
@@ -23,10 +23,10 @@ public class Customer_KH {
     private ArrayList<String> foodlist = new ArrayList<String>();
     private Scanner scanner = new Scanner(System.in);
     
-    public Customer_KH() {
+    public Customer() {
     	
     }
-    public Customer_KH(String id, String address) {
+    public Customer(String id, String address) {
        this.id = id;
        this.address = address;
        this.money = 100000;

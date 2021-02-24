@@ -1,4 +1,4 @@
-package ProjectLSJ0224;
+package Project_SJ;
 
 public class Order {
     private int orderNum; //아니잠간.. orderNum이 정상적으로 누적되려면. I/O를 써야하잖아????
