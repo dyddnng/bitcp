@@ -1,4 +1,4 @@
-package BitEats2;
+package Project;
 
 import java.io.Serializable;
 
