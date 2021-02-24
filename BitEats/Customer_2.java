@@ -95,6 +95,7 @@ public class Customer_2 {
             	in.close();
                 bis.close();
                 fis.close();
+                
             } catch (Exception e) {
                 
             }
@@ -106,6 +107,9 @@ public class Customer_2 {
     	
     	// 장바구니 담는 것처럼 선택한 주문 누적할 것
     	String str = "";
+    	
+    	// switch문 써도 되지만 그러면 case가 늘어날 때마다 수정해줘야 할 것 같아서
+    	// arraylist에 메뉴를 담고 choice는 리스트의 인덱스를 가리키게 했다
     	while(true) {
     		
     		System.out.println("주문하실 메뉴를 선택해주세요. ");
