@@ -1,6 +1,8 @@
-package Project;
+package BitEats2;
 
-public class Food {
+import java.io.Serializable;
+
+public class Food implements Serializable{
     private String foodName;
     private int foodPrice;
 
@@ -19,6 +21,6 @@ public class Food {
 
     @Override
     public String toString() {
-        return "메뉴 이름 : " +  this.foodName + " 가격 : " + this.foodPrice;
+        return this.foodName + " " + this.foodPrice+"원";
     }
 }
