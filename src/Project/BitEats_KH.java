@@ -22,21 +22,21 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
 
-import BitEats3.Customer;
+import BitEats3.Customer_KH;
 
 
-public class BitEats implements Serializable {
+public class BitEats_KH implements Serializable {
 	
 	private Scanner scanner = new Scanner(System.in);
 	private Map<String, String> users;
-	private List<Customer> customerlist;
-	private List<Seller> sellerlist;
+	private List<Customer_KH> customerlist;
+	private List<Seller_KH> sellerlist;
 	private List<Order> orderlist;
 	
-	public BitEats(){
+	public BitEats_KH(){
 		users = new HashMap<String, String>();
-		customerlist = new ArrayList<Customer>();
-		sellerlist = new ArrayList<Seller>();
+		customerlist = new ArrayList<Customer_KH>();
+		sellerlist = new ArrayList<Seller_KH>();
 		orderlist =  new ArrayList<Order>();
 	}
 	
@@ -92,7 +92,7 @@ public class BitEats implements Serializable {
 				}
 				
 				System.out.println("가입이 완료되었습니다.");
-				Customer customer = new Customer();
+				Customer_KH customer = new Customer_KH();
 				customer.customerMenu();
 
 				
@@ -139,7 +139,7 @@ public class BitEats implements Serializable {
 						// TODO: handle exception
 					}
 					System.out.println("가입이 완료되었습니다.");
-					Seller seller = new Seller(id);
+					Seller_KH seller = new Seller_KH(id);
 					seller.sellerMenu();
 				}
 				break;
@@ -159,61 +159,7 @@ public class BitEats implements Serializable {
 		String pw = scanner.nextLine().trim();
 		
 		while(true) {
-			/*
-			System.out.println("ID를 입력해주세요.");
-			String idinput = scanner.nextLine().trim().toLowerCase();
-			System.out.println("PW를 입력해주세요.");
-			String pw = scanner.nextLine().trim();
 			
-			String path = "C:\\BitEats\\Users";
-			String id = idinput;
-			String type = "type.txt";
-	
-			try {
-				
-				File file = new File(path);
-				
-				PrintWriter writer = new PrintWriter(new FileWriter(type));
-				BufferedReader br = null;
-				
-				File[] files = file.listFiles();
-				for(int i = 0; i < files.length; i++) {
-					br = new BufferedReader(new FileReader(files[i]));
-					
-					String str = "";
-					String typefile = "";
-					while( (str = br.readLine()) != null ) {
-						if(str.indexOf(id) != -1) {
-							
-							typefile = writer.toString();
-						}
-					}
-				}
-		
-				br.close();
-				writer.close();
-				
-			} catch (Exception e) {
-				// TODO: handle exception
-			}
-
-
-				*/
-				
-			
-			
-			/*
-			if(!users.containsKey(id)) {
-				System.out.println("존재하지 않는 아이디입니다. 다시 입력해주세요.");
-			} else {
-				if(users.get(id).equals(pw)) {
-					System.out.println("로그인되었습니다.");
-					break;
-				}else {
-					System.out.println("비밀번호가 맞지 않습니다.");
-				}
-			}
-			*/
 			
 		}
 		
